@@ -12,7 +12,7 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
 fi
 
 # Clean if -c/--clean option
-if [[ "$1" == "-c" ]]; then
+if [[ "$1" == "-c" || "$1" == "--clean" ]]; then
     rm -r bin obj
     exit
 fi
