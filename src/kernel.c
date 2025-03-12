@@ -7,7 +7,7 @@
 #error "Targeting wrong system!"
 #endif
 
-/* This tutorial will only work for the 32-bit ix86 targets. */
+/* This kernel will only work for the 32-bit ix86 targets. */
 #if !defined(__i386__)
 #error "An ix86-elf compiler needs to be used!"
 #endif
