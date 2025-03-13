@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
+/* Sanity checks */
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
 #error "Targeting wrong system!"
@@ -12,7 +13,8 @@
 #error "An ix86-elf compiler needs to be used!"
 #endif
 
-/* Hardware text mode color constants. */
+/* VGA stuff */
+// VGA color constants.
 enum vga_color {
 	VGA_COLOR_BLACK = 0,
 	VGA_COLOR_BLUE = 1,
@@ -32,27 +34,31 @@ enum vga_color {
 	VGA_COLOR_WHITE = 15,
 };
 
-static inline uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg) 
-{
+// Gives a byte containing the foreground and background colors.
+static inline uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg)  {
 	return fg | bg << 4;
 }
 
-static inline uint16_t vga_entry(unsigned char uc, uint8_t color) 
-{
+// Gives 16 bits containing the character and its color.
+static inline uint16_t vga_entry(unsigned char uc, uint8_t color)  {
 	return (uint16_t) uc | (uint16_t) color << 8;
 }
 
-size_t strlen(const char* str) 
-{
+// Width of VGA writable.
+static const size_t VGA_WIDTH = 80;
+// Height of VGA writable.
+static const size_t VGA_HEIGHT = 25;
+
+/* String functions */
+// Get the length of a string.
+size_t strlen(const char* str) {
 	size_t len = 0;
 	while (str[len])
 		len++;
 	return len;
 }
 
-static const size_t VGA_WIDTH = 80;
-static const size_t VGA_HEIGHT = 25;
-
+/* Terminal functions */
 size_t terminal_row;
 size_t terminal_column;
 uint8_t terminal_color;
@@ -107,14 +113,14 @@ void terminal_write(const char* data, size_t size)
 		terminal_putchar(data[i]);
 }
 
-void terminal_writestring(const char* data) 
-{
+void terminal_writestring(const char* data) {
 	terminal_write(data, strlen(data));
 }
 
-void kernel_main(void) 
-{
-	// Initialize terminal & write string
+// Wireframe kernel entrypoint.
+void kernel_main(void) {
+	// Initialize terminal & write string.
 	terminal_initialize();
-	terminal_writestring("Wireframe kernel v0.1.0 ALPHA\n");
+	terminal_writestring("circuitOS\n");
+	terminal_writestring("Wireframe kernel v0.0.1 ALPHA\n");
 }
