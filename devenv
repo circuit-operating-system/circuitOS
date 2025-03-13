@@ -1,0 +1,2 @@
+# Initializes a shell for OS development
+alias build="$(pwd)/ext/build/build.sh"
