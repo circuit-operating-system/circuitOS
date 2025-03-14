@@ -15,6 +15,8 @@ Temporal
 ^^^^^^^^
 * ``~/.cross`` - Cross-compilation toolchain.
 * ``bin`` - Binary files.
+* ``binutils.cross`` - Binutils sources for bsys' cross-compilation toolchain generator.
+* ``gcc.cross`` - GCC sources for bsys' cross-compilation toolchain generator.
 * ``obj`` - Object files.
 
 Permanent
@@ -24,6 +26,12 @@ Permanent
 
 bsys Build System
 -----------------
+Dependencies
+^^^^^^^^^^^^
+Cross-compilation toolchain generator
+"""""""""""""""""""""""""""""""""""""
+- Make
+- Texinfo
 
 Viewing the help dialog
 ^^^^^^^^^^^^^^^^^^^^^^^
