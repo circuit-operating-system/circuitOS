@@ -17,6 +17,7 @@ Temporal
 * ``bin`` - Binary files.
 * ``binutils.cross`` - Binutils sources for bsys' cross-compilation toolchain generator.
 * ``gcc.cross`` - GCC sources for bsys' cross-compilation toolchain generator.
+* ``tmp`` - Temporary build files.
 * ``obj`` - Object files.
 
 Permanent
