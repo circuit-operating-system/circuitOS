@@ -84,6 +84,7 @@ if [[ $# -eq 0 ]]; then
     echo ":: Linking OS..."
     mkdir -p bin
     i686-elf-gcc -T bsys/linker.ld -o bin/circuitos.bin -ffreestanding -O2 -nostdlib obj/boot.o obj/kernel.o -lgcc
+    exit
 fi
 
 # Parse arguments and handle them
@@ -101,5 +102,5 @@ case "$1" in
         cross
         ;;
     *)
-        help "fail"
+        help
 esac
