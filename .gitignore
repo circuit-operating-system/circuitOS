@@ -2,3 +2,4 @@ bin
 obj
 binutils.cross
 gcc.cross
+tmp
