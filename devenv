@@ -1,2 +1,3 @@
 # Initializes a shell for OS development
-alias build="$(pwd)/ext/build/build.sh"
+alias bsys="$(pwd)/bsys/bsys.sh"
+export REPO="$(pwd)"
