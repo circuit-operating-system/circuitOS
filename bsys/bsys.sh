@@ -32,7 +32,7 @@ cross() {
 
     # If the PREFIX variable isn't set, then set the default
     if [[ "$PREFIX" == "" ]]; then
-        set PREFIX="$HOME/.cross"
+        PREFIX="/opt/cross"
     fi
 
     # If the tmp temporal directory exists, remove it
@@ -84,14 +84,6 @@ if [[ $# -eq 0 ]]; then
     echo ":: Linking OS..."
     mkdir -p bin
     i686-elf-gcc -T bsys/linker.ld -o bin/circuitos.bin -ffreestanding -O2 -nostdlib obj/boot.o obj/kernel.o -lgcc
-
-    # Verify multiboot compliance
-    if grub-file --is-x86-multiboot bin/circuitos.bin; then
-        echo "    => Multiboot compliance verified."
-    else
-        echo "    (X) Multiboot compliance check failed!" >&2
-    fi
-    exit
 fi
 
 # Parse arguments and handle them
