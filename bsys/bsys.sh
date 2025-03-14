@@ -90,7 +90,7 @@ fi
 # Parse arguments and handle them
 case "$1" in
     "-c" | "--clean")
-        rm -r bin obj && exit
+        rm -r bin obj tmp && exit
         ;;
     "-h" | "--help")
         help
