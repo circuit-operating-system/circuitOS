@@ -1,3 +1,2 @@
 # Initializes a shell for OS development
-alias bsys="$(pwd)/bsys/bsys.sh"
 export REPO="$(pwd)"
