@@ -67,7 +67,7 @@ Cross-compiler generation
 2. If desired, change where the toolchain will be installed with the PREFIX variable.
 3. Run ``sudo su``, then ``source ./devenv && bsys -x``. (``-x`` is the short-hand switch for the flag ``--cross``.)
 
-The cross-compilation toolchain will be installed at ``~/.cross/bin``.
+The cross-compilation toolchain will be (by default) installed at ``/opt/cross/bin``.
 
 Uninstalling the cross-compiler toolchain
 """""""""""""""""""""""""""""""""""""""""
