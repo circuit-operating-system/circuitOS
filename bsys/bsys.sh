@@ -35,9 +35,9 @@ cross() {
         set PREFIX="$HOME/.cross"
     fi
 
-    # If the tmp temporal directory exists, remove its contents
+    # If the tmp temporal directory exists, remove it
     if [[ -d "$REPO/tmp" ]]; then
-        rm -rf "$REPO/tmp/*"
+        rm -rf "$REPO/tmp"
     fi
 
     # Create the temporal subdirectories
@@ -46,15 +46,15 @@ cross() {
     # Build and install Binutils
     cd "$REPO/tmp/binutils"
     "$REPO/binutils.cross/configure" --target="$TARGET" --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror
-    make
+    make -j$(nproc)
     make install
 
     # Build and install GCC
     cd "$REPO/tmp/gcc"
     "$REPO/gcc.cross/configure" --target="$TARGET" --prefix="$PREFIX" --disable-nls --enable-languages=c,c++ --without-headers --disable-hosted-libstdcxx
-    make all-gcc
-    make all-target-libgcc
-    make all-target-libstdc++-v3
+    make all-gcc -j$(nproc)
+    make all-target-libgcc -j$(nproc)
+    make all-target-libstdc++-v3 -j$(nproc)
     make install-gcc
     make install-target-libgcc
     make install-target-libstdc++-v3
