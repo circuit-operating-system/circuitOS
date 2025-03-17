@@ -31,7 +31,7 @@ Dependencies
 ^^^^^^^^^^^^
 Cross-compilation toolchain generator
 """""""""""""""""""""""""""""""""""""
-- Make
+- GNU make
 - Texinfo
 - Bison
 - YACC
@@ -65,7 +65,7 @@ Cross-compiler generation
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 1. Unpack and/or place your sources for Binutils and GCC into the repo's root with the directory names ``binutils.cross`` and ``gcc.cross``.
 2. If desired, change where the toolchain will be installed with the PREFIX variable.
-3. Run ``sudo su``, then ``source ./devenv && bsys -x``. (``-x`` is the short-hand switch for the flag ``--cross``.)
+3. With *root privileges*, run ``source ./devenv && bsys -x``. (``-x`` is the short-hand switch for the flag ``--cross``.)
 
 The cross-compilation toolchain will be (by default) installed at ``/opt/cross/bin``.
 
